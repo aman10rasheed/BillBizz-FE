@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Button from "../../../Components/Button";
 import CirclePlus from "../../../assets/icons/circleplus";
-import Modal from "../../../Components/model/Modal";
 import CehvronDown from "../../../assets/icons/CehvronDown";
-import bgImage from "../../../assets/Images/Frame 6.png"
+import bgImage from "../../../assets/Images/Frame 6.png";
+import Modal from "../../../Components/model/Modal";
 type Props = {};
 
 const NewUnitConverstion = ({}: Props) => {
@@ -20,15 +20,14 @@ const NewUnitConverstion = ({}: Props) => {
     <div>
       <Button
         onClick={openModal}
-        variant="secondary"
-        className="flex items-center"
-        size="lg"
+        variant="primary"
+        size="xl"
       >
-        <CirclePlus color="white" size="14" />{" "}
-        <p className="text-md">New Unit Conversion</p>
+        <CirclePlus color="white" size="28" />{" "}
+        <p className="text-sm font-medium">New Unit Conversion</p>
       </Button>
 
-      <Modal open={isModalOpen} onClose={closeModal} style={{width:"55%"}}>
+      <Modal open={isModalOpen} onClose={closeModal} style={{ width: "55%" }}>
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div
@@ -69,18 +68,19 @@ const NewUnitConverstion = ({}: Props) => {
                   <p>Convertion Rate</p>
                 </div>
                 <div className="bg-slate-200 h-8 w-100 border border-neutral-400 px-3 items-center flex justify-center text-xs rounded-e-lg">
-
-                    kilograms
+                  kilograms
                 </div>
               </div>
             </div>
 
             <div className="flex justify-end gap-2 mb-3 mt-10">
+
               
-              <Button onClick={closeModal} variant="fourthiary" size="lg">
+              <Button onClick={closeModal} variant="secondary" size="lg">
+
                 Cancel
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button variant="primary" size="lg">
                 Save
               </Button>
             </div>

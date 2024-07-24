@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Button from "../../../Components/Button";
 import CirclePlus from "../../../assets/icons/circleplus";
-import Modal from "../../../Components/model/Modal";
 import bgImage from "../../../assets/Images/14.png";
 import savings from "../../../assets/Images/Savings.png";
 import CehvronDown from "../../../assets/icons/CehvronDown";
+import Modal from "../../../Components/model/Modal";
+import PlusCircle from "../../../assets/icons/PlusCircle";
 type Props = {};
 
 const NewBankModal = ({}: Props) => {
@@ -21,11 +22,12 @@ const NewBankModal = ({}: Props) => {
     <div>
       <Button
         onClick={openModal}
-        variant="secondary"
-        className="flex items-center"
+        variant="primary"
+        size="xl"
+      
       >
-        <CirclePlus color="white" size="24" />{" "}
-        <p className="text-md">Create Account</p>
+        <PlusCircle color="white"  />{" "}
+        <p className="text-sm font-medium">Create Account</p>
       </Button>
 
       <Modal open={isModalOpen} onClose={closeModal} className="w-[68%]">
@@ -83,7 +85,7 @@ const NewBankModal = ({}: Props) => {
               <div className="grid grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm mb-1 text-labelColor">
-                    Account Number
+                    Account rating
                   </label>
                   <input
                     type="text"
@@ -125,7 +127,7 @@ const NewBankModal = ({}: Props) => {
               </div>
               <div className="mb-4">
                 <label className="block text-sm mb-1 text-labelColor">
-                  Description
+                  count
                 </label>
                 <textarea
                   placeholder="Value"
@@ -134,10 +136,10 @@ const NewBankModal = ({}: Props) => {
               </div>
               <br />
               <div className="flex justify-end gap-2 mb-3">
-                <Button onClick={closeModal} variant="fourthiary" size="lg">
+                <Button onClick={closeModal} variant="secondary" size="lg">
                   Cancel
                 </Button>
-                <Button variant="secondary" size="lg">
+                <Button variant="primary" size="lg">
                   Save
                 </Button>
               </div>

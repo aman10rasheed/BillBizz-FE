@@ -1,24 +1,24 @@
 import { useState, useEffect } from "react";
-import Button from "../../Components/Button";
-import Modal from "../../Components/model/Modal";
+import Button from "../../../Components/Button";
+import Modal from "../../../Components/model/Modal";
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  initialData: { title: string; description: string } | null;
+  initialData: { title: string; count: string } | null;
 };
 
 function NewBrandModal({ isOpen, onClose, initialData }: Props) {
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [count, setcount] = useState("");
 
   useEffect(() => {
     if (initialData) {
       setName(initialData.title);
-      setDescription(initialData.description);
+      setcount(initialData.count);
     } else {
       setName("");
-      setDescription("");
+      setcount("");
     }
   }, [initialData]);
 
@@ -28,10 +28,12 @@ function NewBrandModal({ isOpen, onClose, initialData }: Props) {
         <div className="flex justify-between items-center">
           <h3 className="text-xl font-bold text-textColor">
             {initialData ? "Edit Brand" : "Add Brand"}
-            </h3>
-          <div className="ms-auto text-3xl font-normal
+          </h3>
+          <div
+            className="ms-auto text-3xl font-normal
            cursor-pointer relative z-10 text-textColor"
-            onClick={onClose}>
+            onClick={onClose}
+          >
             &times;
           </div>
         </div>
@@ -49,12 +51,12 @@ function NewBrandModal({ isOpen, onClose, initialData }: Props) {
             />
           </div>
           <div>
-            <label className="block text-sm mb-1 text-labelColor">Description</label>
+            <label className="block text-sm mb-1 text-labelColor">count</label>
             <textarea
               placeholder="Notes"
               className="border-inputBorder outline-none w-full text-sm border rounded py-3 px-3 h-24"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={count}
+              onChange={(e) => setcount(e.target.value)}
             />
           </div>
           <div className="flex justify-end gap-3">

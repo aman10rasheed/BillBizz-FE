@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CheveronLeftIcon from '../../../assets/icons/CheveronLeftIcon';
 import TrashCan from '../../../assets/icons/TrashCan';
@@ -12,7 +12,7 @@ type Props = {};
 function NewJournal({}: Props) {
   const tableHeaders = [
     "Account",
-    "Description",
+    "count",
     "Contact (INR)",
     "Debits",
     "Credits",
@@ -22,14 +22,14 @@ function NewJournal({}: Props) {
   const initialRows = [
     {
       account: "Account receivable",
-      description: "Description",
+      count: "count",
       contact: "",
       debits: "5000.00",
       credits: "0.00",
     },
     {
       account: "Sales Revenue",
-      description: "Description",
+      count: "count",
       contact: "",
       debits: "5000.00",
       credits: "0.00",
@@ -47,7 +47,7 @@ function NewJournal({}: Props) {
       ...rows,
       {
         account: "Account receivable",
-        description: "Description",
+        count: "count",
         contact: "",
         debits: "5000.00",
         credits: "0.00",
@@ -240,7 +240,7 @@ function NewJournal({}: Props) {
                       clearSearch={clearAccountSearch}
                     />
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
-                      {row.description}
+                      {row.count}
                     </td>
                     <ContactDropdown
                       index={index}
@@ -263,7 +263,7 @@ function NewJournal({}: Props) {
                       onClick={() => deleteRow(index)}
                       className="px-6 py-6 items-center whitespace-nowrap text-sm flex justify-center cursor-pointer"
                     >
-                      <TrashCan />
+                      <TrashCan color='red' />
                     </td>
                   </tr>
                 ))}

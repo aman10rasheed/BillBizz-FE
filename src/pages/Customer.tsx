@@ -1,7 +1,13 @@
+import Dashboard from "../features/Customer/Dashboard/Dashboard";
+
 type Props = {};
 
-const Customer = ({}: Props) => {
-  return <div>Customer</div>;
-};
+function Customer({}: Props) {
+  return (
+    <>
+     <Dashboard/>
+    </>
+  );
+}
 
 export default Customer;

@@ -2,21 +2,19 @@ import { useState } from "react";
 import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/14.png";
 import Button from "../../../Components/Button";
-import Modal from "../../../Components/model/Modal";
 import PlusCircle from "../../../assets/icons/PlusCircle";
-
+import Modal from "../../../Components/model/Modal";
 
 type Props = {};
-
 
 function CreateAccountModal({}: Props) {
   const [isModalOpen, setModalOpen] = useState(false);
   const [accounts, setAccounts] = useState({
     accountName: "",
     accountCode: "",
-    description: ""
+    count: "",
   });
-console.log(accounts);
+  console.log(accounts);
 
   const openModal = () => {
     setModalOpen(true);
@@ -26,20 +24,27 @@ console.log(accounts);
     setModalOpen(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setAccounts((prevAccounts) => ({
       ...prevAccounts,
-      [name]: value
+      [name]: value,
     }));
   };
 
-
-
   return (
     <div>
-      <Button onClick={openModal} variant="secondary" className="flex items-center justify-center" size="xl">
-        <span className="flex items-center px-2.5"><PlusCircle color=""/> &nbsp; Create Account</span>
+      <Button
+        onClick={openModal}
+        variant="secondary"
+        className="flex items-center justify-center"
+        size="xl"
+      >
+        <span className="flex items-center px-2.5">
+          <PlusCircle color="" /> &nbsp; Create Account
+        </span>
       </Button>
 
       <Modal open={isModalOpen} onClose={closeModal} className="">
@@ -47,15 +52,23 @@ console.log(accounts);
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div
               className="absolute top-0 -right-8 w-[178px] h-[89px]"
-              style={{ backgroundImage: `url(${bgImage})`, backgroundRepeat: "no-repeat" }}
+              style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundRepeat: "no-repeat",
+              }}
             ></div>
             <div className="relative z-10">
-              <h3 className="text-xl font-bold text-textColor">Create Cash Account</h3>
+              <h3 className="text-xl font-bold text-textColor">
+                Create Cash Account
+              </h3>
               <p className="text-dropdownText font-semibold text-sm mt-2">
                 Set up your cash account effortlessly!
               </p>
             </div>
-            <div className="ms-auto text-3xl cursor-pointer relative z-10" onClick={closeModal}>
+            <div
+              className="ms-auto text-3xl cursor-pointer relative z-10"
+              onClick={closeModal}
+            >
               &times;
             </div>
           </div>
@@ -66,7 +79,9 @@ console.log(accounts);
             </div>
             <div className="w-[65%]">
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Account Name</label>
+                <label className="block text-sm mb-1 text-labelColor">
+                  Account Name
+                </label>
                 <input
                   type="text"
                   name="accountName"
@@ -78,7 +93,9 @@ console.log(accounts);
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Account Code</label>
+                <label className="block text-sm mb-1 text-labelColor">
+                  Account Code
+                </label>
                 <input
                   type="text"
                   name="accountCode"
@@ -89,10 +106,12 @@ console.log(accounts);
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Description</label>
+                <label className="block text-sm mb-1 text-labelColor">
+                  count
+                </label>
                 <textarea
-                  name="description"
-                  value={accounts.description}
+                  name="count"
+                  value={accounts.count}
                   onChange={handleChange}
                   placeholder="Value"
                   className="border-inputBorder w-full text-sm border rounded p-2 pt-5 pl-2"
@@ -103,7 +122,7 @@ console.log(accounts);
                 <Button onClick={closeModal} variant="fourthiary" size="lg">
                   Cancel
                 </Button>
-                <Button  variant="secondary" size="lg">
+                <Button variant="secondary" size="lg">
                   Save
                 </Button>
               </div>

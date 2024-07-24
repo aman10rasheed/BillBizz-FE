@@ -3,8 +3,8 @@ import Button from "../../../Components/Button";
 import CirclePlus from "../../../assets/icons/circleplus";
 import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/Frame 6.png";
-import Modal from "../../../Components/model/Modal";
 import chartOfAcc from "../../../assets/constants/chartOfAcc";
+import Modal from "../../../Components/model/Modal";
 type Props = {};
 
 function NewAccountModal({}: Props) {
@@ -18,24 +18,20 @@ function NewAccountModal({}: Props) {
     setModalOpen(false);
   };
 
-  const options = chartOfAcc.flatMap((item) =>
-    item.subhead.map((subitem) => ({
-      label: subitem,
-      value: subitem,
-    }))
-  );
+  // const options = chartOfAcc.flatMap((item) =>
+  //   item.subhead.map((subitem) => ({
+  //     label: subitem,
+  //     value: subitem,
+  //   }))
+  // );
   return (
     <div>
-      <Button
-        onClick={openModal}
-        variant="secondary"
-        className="flex items-center"
-      >
-        <CirclePlus color="white" size="14" />{" "}
-        <p className="text-xs">New Account</p>
+      <Button onClick={openModal} variant="primary">
+        <CirclePlus color="white" size="16" />
+        <p className="text-sm">New Account</p>
       </Button>
 
-          <Modal open={isModalOpen} onClose={closeModal} className="">
+      <Modal open={isModalOpen} onClose={closeModal} className="">
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div
@@ -73,6 +69,7 @@ function NewAccountModal({}: Props) {
                       className="text-maroon"
                       key={index}
                       label={item.head}
+                      style={{ margin: "10px" }}
                     >
                       {item.subhead.map((subitem, subindex) => (
                         <option
@@ -99,7 +96,7 @@ function NewAccountModal({}: Props) {
               </div>
               <div className="mb-4">
                 <label className="block text-sm mb-1 text-labelColor">
-                  Description
+                  count
                 </label>
                 <textarea
                   placeholder="Value"

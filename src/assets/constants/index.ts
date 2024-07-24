@@ -27,11 +27,11 @@ const navlist = [
       },
       {
         headName: "Item",
-        rounte: "/inventory",
+        rounte: "/inventory/Item",
       },
       {
         headName: "Unit of Measurement",
-        rounte: "/inventory",
+        rounte: "/inventory/unit",
       },
     ],
   },
@@ -46,7 +46,7 @@ const navlist = [
       },
       {
         headName: "Customer",
-        rounte: "/sales",
+        rounte: "/customer/home",
       },
     ],
   },
@@ -92,7 +92,7 @@ const navlist = [
       },
       {
         headName: "Chart Of Account",
-        rounte: "/inventory",
+        rounte: "/accountant/chart-OF-accountant",
       },
       {
         headName: "Manuval Journals",
@@ -115,7 +115,17 @@ const navlist = [
   {
     nav: "Supplier",
     icon: truck,
-    route: "/home",
+    route: "/supplier",
+    subhead:[
+      {
+        headName: "Dashboard",
+        rounte: "/supplier",
+      },
+      {
+        headName:"Supplier",
+        rounte:"/supplier/home"
+      }
+    ]
   },
   {
     nav: "Expense",
@@ -236,7 +246,7 @@ export const customizationList = [
   { title: "Reporting Tags" },
   { title: "Web Tabs" },
   { title: "Digital Signature" },
-  { title: "Transaction Number Series" },
+  { title: "Transaction rating Series" },
   { title: "PDF Templates" },
 ];
 
@@ -245,5 +255,15 @@ export const ReminderList = [
   { title: "Email Notification" },
   { title: "SMS Notification" },
 ];
+
+export const newPurchaseOrderTableHead=[
+  "Product",
+  "Quantity",
+  "Rate",
+  "Tax",
+  "Discount",
+   "Actions" 
+
+]
 
 export default navlist;

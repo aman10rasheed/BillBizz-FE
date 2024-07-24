@@ -7,8 +7,7 @@ import HandShakeIcon from "../assets/icons/HandShakeIcon";
 import DashboardHome from "../features/inventory/Dashboard/DashboardHome";
 import RackModal from "../features/inventory/Rack/RackModal";
 import Category from "../features/inventory/Category/Category";
-import BrandModal from "../features/inventory/BrandModal";
-import NewCustomerModal from "../features/Customer/NewCustomerModal";
+import BrandModal from "../features/inventory/Brand/BrandModal";
 
 type Props = {};
 
@@ -16,7 +15,11 @@ const Inventory = ({}: Props) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
   const [isRackModalOpen, setIsRackModalOpen] = useState(false);
+  const [openCategoryModal, setOpenCategoryModal] = useState(false);
 
+  const toggleCategoryModal = () => {
+    setOpenCategoryModal(!openCategoryModal);
+  };
   const dropdownRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -68,20 +71,19 @@ const Inventory = ({}: Props) => {
       icon: <ClipboardIcon color="#4B5C79" />,
       text: "View Category",
       onClick: () => {
-        console.log("View Category clicked");
+        setOpenCategoryModal(true);
       },
     },
   ];
 
   return (
     <>
-      <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
+      <div className="p-3 m-5 h-[50px] rounded-full bg-lightBeige">
         <div className="flex justify-end">
-          <NewCustomerModal />
           <div onClick={toggleDropdown} className="cursor-pointer">
             <Ellipsis />
           </div>
-          <Category />
+
           {isDropdownOpen && (
             <div
               ref={dropdownRef}
@@ -93,7 +95,8 @@ const Inventory = ({}: Props) => {
                   <div key={index}>
                     <li
                       onClick={item.onClick}
-                      className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer"
+                      className="px-4 py-2 flex items-center 
+                      gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer"
                     >
                       {item.icon}
                       {item.text}
@@ -108,12 +111,14 @@ const Inventory = ({}: Props) => {
           )}
         </div>
       </div>
+
       {isBrandModalOpen && (
         <BrandModal ref={modalRef} onClose={() => setIsBrandModalOpen(false)} />
       )}
       {isRackModalOpen && (
         <RackModal ref={modalRef} onClose={() => setIsRackModalOpen(false)} />
       )}
+      <Category isOpen={openCategoryModal} onClose={toggleCategoryModal} />
       <DashboardHome />
     </>
   );
